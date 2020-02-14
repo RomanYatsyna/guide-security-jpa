@@ -5,12 +5,18 @@
             <h2>Авторизация</h2>
             <div class="row">
                 <div class="col-md-12 form-group">
-                    <input type="text" name="username" class="form-control" placeholder="Username">
+                    <input type="text"
+                           name="username"
+                           class="form-control"
+                           placeholder="Username">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 form-group">
-                    <input type="password" name="password" placeholder="Enter your Password" class="form-control">
+                    <input type="password"
+                           name="password"
+                           placeholder="Enter your Password"
+                           class="form-control">
                 </div>
             </div>
             <input type="hidden" name="_csrf" value="${_csrf.token}">

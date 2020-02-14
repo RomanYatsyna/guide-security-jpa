@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Collection;
 import java.util.Set;
 
@@ -16,11 +17,13 @@ public class User implements UserDetails {
     private long id;
 
     @NotBlank(message = "Username cannot be empty")
+    @NotNull
     private String username;
 
     @NotBlank(message = "Password cannot be empty")
+    @NotNull
     private String password;
-    private boolean enabled;
+    private boolean enabled = true;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
