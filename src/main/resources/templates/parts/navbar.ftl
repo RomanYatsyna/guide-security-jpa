@@ -5,14 +5,17 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="home2">
+    <div class="collapse navbar-collapse" id="scenarios">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/">Home2</a>
+                <a class="nav-link" href="/">Scenarios</a>
             </li>
             <#if isAdmin>
                 <li class="nav-item">
                     <a class="nav-link" href="/registration">Register User</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user_list">User Listr</a>
                 </li>
             </#if>
         </ul>

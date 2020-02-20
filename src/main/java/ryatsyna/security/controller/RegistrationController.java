@@ -15,6 +15,7 @@ import ryatsyna.security.repository.UserRepository;
 
 import javax.validation.Valid;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Controller
@@ -61,4 +62,20 @@ public class RegistrationController {
         model.addAttribute("alertSuccess", "User successfully created");
         return "registration";
     }
+
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
+    @GetMapping("/user_list")
+    public String userList(Model model) {
+        List<User> allUsers = userRepository.findAll();
+        model.addAttribute("allUsers", allUsers);
+        return "userlist";
+    }
+
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
+    @PostMapping("/user_delete")
+    public String deleteUser(User user) {
+        userRepository.delete(user);
+        return "redirect:/user_list";
+    }
+
 }
